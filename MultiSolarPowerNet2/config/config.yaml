@@ -1,0 +1,67 @@
+basic:
+  include_nwp : True
+  nwp_source_num : 1
+  include_sat : True
+  sat_source_num : 1
+  include_ec : False
+
+
+datamodule:
+  experiment: null
+
+
+dataset:
+  gsp_data_path : 
+    - .//exemple_data//gfs//SQ2.csv
+  gsp_frequency_per_hour : 4
+  gsp_input_time_len_in_hour : 24
+  output_time_len_in_hour : 4
+  predict_interval_in_hour  : 4
+  shifting_hour  : 4
+
+  nwp_data_path : 
+    - .//exemple_data//nwp//nwp_data_202207.npy
+  nwp_frequency_per_hour  : 1/6
+  nwp_input_time_len_in_hour  : 24
+
+  sat_data_path : 
+    - .//exemple_data//nwp//nwp_data_202207.npy
+  sat_frequency_per_hour  : 1/6
+  sat_input_time_len_in_hour  : 24
+
+
+
+training:
+
+  gsp_in_channels : 1
+  gsp_kernel_sizes  : [3,3,3,3,3,3]
+  gsp_paddings  : [1,1,1,1,1,1]
+  gsp_channel_num_list  : [4,8,16,32,32,32]
+  gsp_tf_input_dim   : 72
+  gsp_nhead   : 36
+  gsp_nhid   : 10
+  gsp_nlayers   : 6
+
+  cm_input_feature  : 1
+  cm_input_len   : 5
+  cm_output_feature   : 1
+  ouput_len  : 5
+
+  nwp_in_channels : [50]
+  nwp_kernel_sizes  : [[3,3,3,3,3,3]]
+  nwp_paddings  : [[0,1,1,1,1,1]]
+  nwp_channel_num_list  : [[150,150,150,150,150,150]]
+  nwp_tf_input_dim   : [100]
+  nwp_nhead   : [50]
+  nwp_nhid   : [10]
+  nwp_nlayers   : [6]
+
+
+  sat_in_channels : [4]
+  sat_kernel_sizes  : [[3,3,3,3,3,3]]
+  sat_paddings  : [[0,1,1,1,1,1]]
+  sat_channel_num_list  : [[150,150,150,150,150,150]]
+  sat_tf_input_dim   : [48]
+  sat_nhead   : [24]
+  sat_nhid   : [4]
+  sat_nlayers   : [6]

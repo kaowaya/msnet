@@ -1,0 +1,95 @@
+
+x = torch.mean(x, dim=2) → x = torch.mean(x, dim=1)
+mae = 1.7  →  mae = 0.54
+
+
+
+self.conv1 = nn.Conv1d(1, 4, kernel_size=5, padding=0)
+        self.conv2 = nn.Conv1d(4, 8, kernel_size=5, padding=0)
+        self.conv3 = nn.Conv1d(8, 16, kernel_size=5, padding=0)
+        self.conv4 = nn.Conv1d(16, 32, kernel_size=5, padding=0)
+        self.conv5 = nn.Conv1d(32, 32, kernel_size=5, padding=0)
+        self.conv6 = nn.Conv1d(32, 32, kernel_size=5, padding=0)
+        self.fc1 = nn.Linear(72, 64)
+
+        encoder_layers = nn.TransformerEncoderLayer(d_model=64, 
+                                                     nhead=16, 
+                                                     dim_feedforward=10, 
+                                                     dropout=0.3)
+                                                     , lr=0.001
+
+mae = 0.54
+
+
+self.conv1 = nn.Conv1d(1, 4, kernel_size=3, padding=0)
+        self.conv2 = nn.Conv1d(4, 8, kernel_size=3, padding=0)
+        self.conv3 = nn.Conv1d(8, 16, kernel_size=3, padding=0)
+        self.conv4 = nn.Conv1d(16, 32, kernel_size=3, padding=0)
+        self.conv5 = nn.Conv1d(32, 32, kernel_size=3, padding=0)
+        self.conv6 = nn.Conv1d(32, 32, kernel_size=3, padding=0)
+        self.fc1 = nn.Linear(84, 64)
+
+        encoder_layers = nn.TransformerEncoderLayer(d_model=64, 
+                                                     nhead=16, 
+                                                     dim_feedforward=10, 
+                                                     dropout=0.3)
+                                                     , lr=0.001
+                                                     epoch=60
+
+mae = 0.43
+
+
+
+self.conv1 = nn.Conv1d(1, 4, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv1d(4, 8, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv1d(8, 16, kernel_size=3, padding=1)
+        self.conv4 = nn.Conv1d(16, 32, kernel_size=3, padding=1)
+        self.conv5 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.conv6 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(96, 72)
+
+        encoder_layers = nn.TransformerEncoderLayer(d_model=72, 
+                                                     nhead=36, 
+                                                     dim_feedforward=10, 
+                                                     dropout=0.3)
+                                                     , lr=0.001,
+                                                     epoch=60
+mae = 0.31
+
+
+
+self.conv1 = nn.Conv1d(1, 4, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv1d(4, 8, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv1d(8, 16, kernel_size=3, padding=1)
+        self.conv4 = nn.Conv1d(16, 32, kernel_size=3, padding=1)
+        self.conv5 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.conv6 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(96, 72)
+
+        encoder_layers = nn.TransformerEncoderLayer(d_model=72, 
+                                                     nhead=36, 
+                                                     dim_feedforward=10, 
+                                                     dropout=0.3)
+                                                     , lr=0.001,
+                                                     epoch=60
+
+        最后加relu
+mae = 0.29
+
+self.conv1 = nn.Conv1d(1, 4, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv1d(4, 8, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv1d(8, 16, kernel_size=3, padding=1)
+        self.conv4 = nn.Conv1d(16, 32, kernel_size=3, padding=1)
+        self.conv5 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.conv6 = nn.Conv1d(32, 32, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(96, 72)
+
+        encoder_layers = nn.TransformerEncoderLayer(d_model=72, 
+                                                     nhead=36, 
+                                                     dim_feedforward=10, 
+                                                     dropout=0.3)
+                                                     , lr=0.001,
+                                                     epoch=1000
+
+        最后加relu
+mae = 0.16
