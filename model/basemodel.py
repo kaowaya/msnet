@@ -13,12 +13,15 @@ class BaseModel(pl.LightningModule):
         super(BaseModel, self).__init__()
         self.train_losses = []
         self.val_losses = []
+        # 使用自定义损失函数
+        # self.loss_fn = CustomMAEAccuracyLoss(total_capacity=self.total_capacity)
 
     def training_step(self, batch, batch_idx):
         x, y = batch
         y = y.permute(0, 2, 1)
         y_hat = self(x)
         loss = F.mse_loss(y_hat, y)
+        # loss = self.loss_fn(y_hat, y)
         self.log("train_loss", loss, on_step=True, on_epoch=True, logger=True)
         self.train_losses.append(loss.item())
         return loss
@@ -29,6 +32,7 @@ class BaseModel(pl.LightningModule):
         y_hat = self(x)
 
         loss = F.mse_loss(y_hat, y)
+        # loss = self.loss_fn(y_hat, y)
         self.log('val_loss', loss)
         return loss
     
@@ -37,6 +41,8 @@ class BaseModel(pl.LightningModule):
         y = y.permute(0, 2, 1)
         y_hat = self(x)
         loss = F.mse_loss(y_hat, y)
+
+        # loss = self.loss_fn(y_hat, y)
         # 可视化预测结果
         self.plot_results(y_hat, y)
 
